@@ -174,6 +174,12 @@ flowchart TD
 
 ---
 
+## Hosting and runtime
+
+This repository contains Jupyter notebooks, Python helpers, local CSV data, and saved model/statistics artifacts; it has no web frontend or deployed prediction service. No Vercel deployment is configured. The “XGBoost Model API” heading below describes a model asset and example API shape, not a running public endpoint.
+
+Run the analysis in a local Python/Jupyter environment with the packages listed in `requirements.txt`, the required datasets, and network access if you repeat the historical-price retrieval. The saved models and trade outputs are files; Vercel would not run the notebook pipeline or provide persistent research storage. A recurring or shared research run would need a scheduled Python job on a persistent VM/container with protected data access and durable output storage. Any public prediction API would need to be built, tested, and documented separately; it is not supplied here.
+
 ## 10. <a name="xgboost-model-api-model-asset"></a>XGBoost Model API (Model Asset)
 
 For each stock, the trained XGBoost model is saved as a JSON asset (e.g., `INFY_model.json`). To use the model, load and call `predict()` with the 6-feature input.
